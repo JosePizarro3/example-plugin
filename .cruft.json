@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin",
+  "commit": "95810175ad7dad86da60887eb6c039b75c71189d",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "John Doe",
+      "email": "john.doe@physik.hu-berlin.de",
+      "github_username": "foo",
+      "plugin_name": "nomad-parser-vasp",
+      "module_name": "nomad_parser_vasp",
+      "short_description": "Nomad example template",
+      "version": "0.1.0",
+      "license": "Apache Software License 2.0",
+      "include_schema_package": true,
+      "include_normalizer": false,
+      "include_parser": true,
+      "include_app": false,
+      "include_example_uploads": false,
+      "_copy_without_render": [
+        "*.html"
+      ],
+      "_template": "https://github.com/FAIRmat-NFDI/cookiecutter-nomad-plugin"
+    }
+  },
+  "directory": null
+}

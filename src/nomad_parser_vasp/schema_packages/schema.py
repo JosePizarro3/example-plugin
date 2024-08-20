@@ -16,7 +16,7 @@ from nomad.datamodel.metainfo.annotations import ELNAnnotation, ELNComponentEnum
 from nomad.metainfo import Quantity, SchemaPackage
 
 configuration = config.get_plugin_entry_point(
-    'nomad_parser_vasp.schema_packages:mypackage'
+    'nomad_parser_vasp.schema_packages:vasp_schema_extensions'
 )
 
 m_package = SchemaPackage()
@@ -24,14 +24,13 @@ m_package = SchemaPackage()
 
 class MySchema(Schema):
     name = Quantity(
-        type=str, a_eln=ELNAnnotation(component=ELNComponentEnum.StringEditQuantity)
+        type=str, default='World'
     )
     message = Quantity(type=str)
 
     def normalize(self, archive: 'EntryArchive', logger: 'BoundLogger') -> None:
         super().normalize(archive, logger)
 
-        logger.info('MySchema.normalize', parameter=configuration.parameter)
         self.message = f'Hello {self.name}!'
 
 

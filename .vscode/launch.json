@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "example-plugin parser",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/.pyenv/bin/nomad",
+            "justMyCode": false,
+            "args": [
+                "parse",
+                "--show-archive",
+                "/home/josepizarro/example-plugin/tests/data/glycine.log"
+            ]
+        }
+    ]
+}

@@ -1,2 +1,0 @@
-recursive-include * nomad_plugin.yaml
-graft src/nomad_nomad_parser_vasp/example_uploads

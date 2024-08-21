@@ -15,11 +15,11 @@ from nomad.datamodel.results import Material, Results
 from nomad.parsing.parser import MatchingParser
 
 configuration = config.get_plugin_entry_point(
-    'nomad_parser_vasp.parsers:vasprun_xml_parser'
+    'nomad_parser_pyscf.parsers:pyscf_entry_point'
 )
 
 
-class VasprunXMLParser(MatchingParser):
+class PySCFParser(MatchingParser):
     def parse(
         self,
         mainfile: str,
@@ -27,4 +27,4 @@ class VasprunXMLParser(MatchingParser):
         logger: 'BoundLogger',
         child_archives: dict[str, 'EntryArchive'] = None,
     ) -> None:
-        logger.info('Hey!')
+        print('Hello world!')

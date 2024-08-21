@@ -11,7 +11,7 @@
             "args": [
                 "parse",
                 "--show-archive",
-                "/home/josepizarro/example-plugin/tests/data/vasprun.xml.relax"
+                "/home/josepizarro/example-plugin/tests/data/glycine.log"
             ]
         }
     ]

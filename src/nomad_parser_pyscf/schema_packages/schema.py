@@ -16,7 +16,7 @@ from nomad.datamodel.metainfo.annotations import ELNAnnotation, ELNComponentEnum
 from nomad.metainfo import Quantity, SchemaPackage
 
 configuration = config.get_plugin_entry_point(
-    'nomad_parser_vasp.schema_packages:vasp_schema_extensions'
+    'nomad_parser_pyscf.schema_packages:mypackage'
 )
 
 m_package = SchemaPackage()

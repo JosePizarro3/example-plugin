@@ -13,7 +13,7 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "License :: OSI Approved :: Apache Software License",
 ]
-name = "nomad-parser-vasp"
+name = "nomad-parser-pyscf"
 description = "Nomad example template"
 version = "0.1.0"
 readme = "README.md"
@@ -35,6 +35,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["ruff", "pytest", "structlog"]
+
+[tool.uv]
+index-url = "https://gitlab.mpcdf.mpg.de/api/v4/projects/2187/packages/pypi/simple"
 
 [tool.ruff]
 # Exclude a variety of commonly ignored directories.
@@ -111,8 +114,8 @@ package-dir = { "" = "src" }
 where = ["src"]
 
 [project.entry-points.'nomad.plugin']
-vasprun_xml_parser = "nomad_parser_vasp.parsers:vasprun_xml_parser"
-vasp_schema_extensions = "nomad_parser_vasp.schema_packages:vasp_schema_extensions"
+pyscf_entry_point = "nomad_parser_pyscf.parsers:pyscf_entry_point"
+mypackage = "nomad_parser_pyscf.schema_packages:mypackage"
 
 
 

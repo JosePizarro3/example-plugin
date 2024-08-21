@@ -12,5 +12,6 @@ class VasprunXMLEntryPoint(ParserEntryPoint):
 vasprun_xml_parser = VasprunXMLEntryPoint(
     name='VasprunXMLParser',
     description='Parser for VASP output in XML format.',
-    mainfile_name_re='.*vasprun\.xml.*',
+    # mainfile_name_re='example.out',
+    mainfile_contents_re=r'mysupercode',
 )

@@ -1,9 +1,7 @@
-from nomad.config import config
-from nomad.metainfo import Quantity, SchemaPackage
-
 import nomad_simulations
 import numpy as np
-
+from nomad.config import config
+from nomad.metainfo import Quantity, SchemaPackage
 
 configuration = config.get_plugin_entry_point(
     'nomad_parser_pyscf.schema_packages:schema_package_entry_point'
@@ -18,7 +16,8 @@ class ExtendedAtomsState(nomad_simulations.schema_packages.atoms_state.AtomsStat
         default=0.0,
         unit='bohr_magneton',
         description="""
-        Magnetic moment of the atom in Bohr magneton units. This quantity is relevant only for spin-polarized calculations.
+        Magnetic moment of the atom in Bohr magneton units. This quantity is relevant
+        only for spin-polarized calculations.
         """,
     )
 

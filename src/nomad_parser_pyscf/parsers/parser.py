@@ -11,14 +11,14 @@ if TYPE_CHECKING:
     )
 
 from nomad.config import config
+from nomad.parsing.file_parser import Quantity as ParsedQuantity
+from nomad.parsing.file_parser import TextParser
 from nomad.parsing.parser import MatchingParser
-from nomad.parsing.file_parser import Quantity as ParsedQuantity, TextParser
-
 from nomad.units import ureg
-from nomad_simulations.schema_packages.model_system import ModelSystem, AtomicCell
-from nomad_simulations.schema_packages.general import Simulation, Program
-from nomad_parser_pyscf.schema_packages.schema_package import ExtendedAtomsState
+from nomad_simulations.schema_packages.general import Program, Simulation
+from nomad_simulations.schema_packages.model_system import AtomicCell, ModelSystem
 
+from nomad_parser_pyscf.schema_packages.schema_package import ExtendedAtomsState
 
 configuration = config.get_plugin_entry_point(
     'nomad_parser_pyscf.parsers:parser_entry_point'
@@ -33,7 +33,8 @@ class LogParser(TextParser):
             ),
             ParsedQuantity(
                 'atoms_information',
-                r'\[INPUT\] *\d *([a-zA-Z])+ *([\d\.\-]+) *([\d\.\-]+) *([\d\.\-]+) *([a-zA-Z]+)[\d\.\-\s]*[a-zA-Z]* *([\d\.\-]+)',
+                r'\[INPUT\] *\d *([a-zA-Z])+ *([\d\.\-]+) *([\d\.\-]+) *'
+                r'([\d\.\-]+) *([a-zA-Z]+)[\d\.\-\s]*[a-zA-Z]* *([\d\.\-]+)',
                 repeats=True,
             ),
         ]
@@ -64,7 +65,8 @@ class PySCFParser(MatchingParser):
         # Instantiate `AtomicCell` and append it to `ModelSystem`
         atomic_cell = AtomicCell()
         model_system.cell.append(atomic_cell)
-        # Instantiate `AtomsState` for each atom, populate these sections with the information, and append them to `AtomicCell`
+        # Instantiate `AtomsState` for each atom, populate these sections with the
+        # information, and append them to `AtomicCell`
         positions = []
         for atom in atoms_information:
             try:

@@ -1,7 +1,8 @@
 import logging
-import numpy as np
 
+import numpy as np
 from nomad.datamodel import EntryArchive
+
 from nomad_parser_pyscf.parsers.parser import PySCFParser
 
 
@@ -40,7 +41,8 @@ def test_parse_file():
         ),
     ).all()
     # ExtendedAtomsState testing
-    assert len(cell.atoms_state) == 3
+    n_atoms = 3
+    assert len(cell.atoms_state) == n_atoms
     assert [atom.m_def.name == 'ExtendedAtomsState' for atom in cell.atoms_state]
     assert [atom.chemical_symbol for atom in cell.atoms_state] == ['O', 'H', 'H']
     assert [atom.magnetic_moment.magnitude for atom in cell.atoms_state] == [

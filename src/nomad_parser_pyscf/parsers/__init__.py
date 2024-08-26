@@ -2,7 +2,6 @@ from nomad.config.models.plugins import ParserEntryPoint
 
 
 class PySCFEntryPoint(ParserEntryPoint):
-
     def load(self):
         from nomad_parser_pyscf.parsers.parser import PySCFParser
 

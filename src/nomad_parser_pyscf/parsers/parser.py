@@ -34,7 +34,7 @@ class LogParser(TextParser):
             ParsedQuantity(
                 'atoms_information',
                 r'\[INPUT\] *\d *([a-zA-Z])+ *([\d\.\-]+) *([\d\.\-]+) *([\d\.\-]+) *([a-zA-Z]+)[\d\.\-\s]*[a-zA-Z]* *([\d\.\-]+)',
-                repeats=True
+                repeats=True,
             ),
         ]
 
@@ -47,13 +47,10 @@ class PySCFParser(MatchingParser):
         logger: 'BoundLogger',
         child_archives: dict[str, 'EntryArchive'] = None,
     ) -> None:
-
         log_parser = LogParser(mainfile=mainfile, logger=logger)
 
         simulation = Simulation()
-        program = Program(
-            name='PySCF', version=log_parser.get('program_version')
-        )
+        program = Program(name='PySCF', version=log_parser.get('program_version'))
         simulation.program = program
 
         # Add the `Simulation` activity to the `archive`
@@ -73,6 +70,7 @@ class PySCFParser(MatchingParser):
             try:
                 atom_state = ExtendedAtomsState(
                     chemical_symbol=atom[0],
+                    magnetic_moment=atom[-1] * ureg('bohr_magneton'),
                 )
                 atomic_cell.atoms_state.append(atom_state)
                 position_unit = {
@@ -81,5 +79,7 @@ class PySCFParser(MatchingParser):
                 }
                 positions.append(atom[1:4])
             except Exception:
-                logger.warning('Matching `atoms_information` is missing some information.')
+                logger.warning(
+                    'Matching `atoms_information` is missing some information.'
+                )
         atomic_cell.positions = positions * ureg(position_unit[atom[-2]])

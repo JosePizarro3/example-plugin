@@ -19,7 +19,7 @@ class ExtendedAtomsState(nomad_simulations.schema_packages.atoms_state.AtomsStat
         unit='bohr_magneton',
         description="""
         Magnetic moment of the atom in Bohr magneton units. This quantity is relevant only for spin-polarized calculations.
-        """
+        """,
     )
 
 

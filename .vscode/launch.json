@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "example-plugin parser",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/.pyenv/bin/nomad",
+            "justMyCode": false,
+            "args": [
+                "parse",
+                "--show-archive",
+                "/home/josepizarro/example-plugin/tests/data/glycine.log"
+            ]
+        },
+        {
+            "name": "example-plugin tests",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/.pyenv/bin/pytest",
+            "justMyCode": false,
+            "env": {
+                "_PYTEST_RAISE": "1"
+            },
+            "args": [
+                "-sv",
+                "/home/josepizarro/example-plugin/tests/data/glycine.log"
+            ]
+        },
+    ]
+}

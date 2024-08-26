@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/JosePizarro3/cookiecutter-nomad-plugin",
+  "commit": "5eef9da0120aac5d5849d3e4e90cea794108ea70",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "full_name": "Jose Pizarro",
+      "email": "jose.pizarro@physik.hu-berlin.de",
+      "github_username": "JosePizarro3",
+      "plugin_name": "nomad-parser-pyscf",
+      "module_name": "nomad_parser_pyscf",
+      "short_description": "NOMAD parser plugin for PySCF simulations output in a log text file.",
+      "version": "0.1.0",
+      "license": "Apache Software License 2.0",
+      "include_schema_package": true,
+      "include_normalizer": false,
+      "include_parser": true,
+      "include_app": false,
+      "include_example_uploads": false,
+      "_copy_without_render": [
+        "*.html"
+      ],
+      "_template": "https://github.com/JosePizarro3/cookiecutter-nomad-plugin"
+    }
+  },
+  "directory": null
+}
